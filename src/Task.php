@@ -6,14 +6,20 @@
 
 class Task
 {
-    const STATUS_NEW = 'new';
-    const STATUS_CANCEL = 'canceled';
-    const STATUS_IN_WORK = 'in_work';
-    const STATUS_DONE = 'done';
-    const STATUS_FAIL = 'fail';
+    /**
+     * Список всех доступных статусов.
+     */
+    const STATUS_NEW = 1;
+    const STATUS_CANCEL = 2;
+    const STATUS_IN_WORK = 3;
+    const STATUS_DONE = 4;
+    const STATUS_FAIL = 5;
 
-    public function __construct()
+
+    public function getStatusesMap()
     {
 
     }
+
+
 }

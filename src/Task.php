@@ -16,20 +16,32 @@ class Task
     const STATUS_FAIL = 5;
 
 
-    public function getActionMap()
+    /**
+     * Возвращает карту статусов
+     *
+     * @return string[]
+     */
+    public function getStatusesMap()
     {
         return[
-            self::STATUS_NEW => 'Новое',
-            self::STATUS_CANCEL => 'Отменено',
-            self::STATUS_IN_WORK => 'В работе',
-            self::STATUS_DONE => 'Выполнено',
-            self::STATUS_FAIL => 'Провалено',
+            self::STATUS_NEW => 1,
+            self::STATUS_CANCEL => 2,
+            self::STATUS_IN_WORK => 3,
+            self::STATUS_DONE => 4,
+            self::STATUS_FAIL => 5,
         ];
     }
 
-    public function getStatusesMap()
+    public function getActionMap()
     {
-
+        return[
+            ActionRespond::class => 'Откликнуться',
+            ActionCancel::class => 'Отменить',
+            ActionComplete::class => 'Завершить',
+            ActionStartProject::class => 'Старт задания',
+            ActionSendNotification::class => 'Отправить уведомление',
+            ActionSendMessage::class => 'Отправить сообщение',
+        ];
     }
 
 

@@ -6,6 +6,41 @@
 
 class Task
 {
+
+    /**
+     * Исполнитель
+     *
+     * @var
+     */
+    private $implementer;
+
+    /**
+     * Заказчик
+     *
+     * @var
+     */
+    private $customer;
+
+    /**
+     * Устанавливаем исполнителя
+     *
+     * @param $str
+     */
+    private function setImplementer($str)
+    {
+        $this->implementer = $str;
+    }
+
+    /**
+     * Устанавливаем заказчика
+     *
+     * @param $str
+     */
+    private function setCustomer($str)
+    {
+        $this->customer = $str;
+    }
+
     /**
      * Список всех доступных статусов.
      */
@@ -33,7 +68,7 @@ class Task
     }
 
     /**
-     * Возвращает карту действий 
+     * Возвращает карту действий
      *
      * @return string[]
      */

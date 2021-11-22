@@ -22,6 +22,17 @@ class Task
     private $customer;
 
     /**
+     * Task constructor.
+     * @param $customer
+     * @param null $implementer
+     */
+    public function __construct($customer, $implementer = null)
+    {
+        $this->setCustomer($this);
+        $this->setImplementer($implementer);
+    }
+
+    /**
      * Устанавливаем исполнителя
      *
      * @param $str

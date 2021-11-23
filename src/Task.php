@@ -31,6 +31,7 @@ class Task
     /**
      * Task constructor.
      * @param $customer
+     * @param string $status
      * @param null $implementer
      */
     public function __construct($customer, $status = 'new', $implementer = null)
@@ -61,9 +62,10 @@ class Task
     }
 
     /**
-     * Устанавливаем статус задачи
+     * Устанавливаем статус задания
      *
      * @param $str
+     * @throws Exception
      */
     private function setStatus($str)
     {

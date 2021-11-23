@@ -22,6 +22,13 @@ class Task
     private $customer;
 
     /**
+     * Cтатус задачи
+     *
+     * @var
+     */
+    private $status;
+
+    /**
      * Task constructor.
      * @param $customer
      * @param null $implementer
@@ -50,6 +57,16 @@ class Task
     private function setCustomer($str)
     {
         $this->customer = $str;
+    }
+
+    /**
+     * Устанавливаем статус задачи
+     *
+     * @param $str
+     */
+    private function setStatus($str)
+    {
+        $this->status = $str;
     }
 
     /**

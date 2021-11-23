@@ -30,9 +30,11 @@ class Task
 
     /**
      * Task constructor.
+     *
      * @param $customer
      * @param string $status
      * @param null $implementer
+     * @throws Exception
      */
     public function __construct($customer, $status = 'new', $implementer = null)
     {
@@ -116,6 +118,26 @@ class Task
             ActionSendNotification::class => 'Отправить уведомление',
             ActionSendMessage::class => 'Отправить сообщение',
         ];
+    }
+
+    /**
+     * Возвращает имя статуса, в который перейдёт задание после выполнения конкретного действия.
+     *
+     * @param $action
+     * @return string
+     */
+    public function getNextStatus($action)
+    {
+        switch ($action) {
+            case 'action_respond':
+                return self::STATUS_NEW;
+            case 'action_cancel':
+                return self::STATUS_CANCEL;
+            case 'action_done':
+                return self::STATUS_DONE;
+            case 'action_start':
+                return self::STATUS_IN_WORK;
+        }
     }
 
 

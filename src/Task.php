@@ -33,10 +33,11 @@ class Task
      * @param $customer
      * @param null $implementer
      */
-    public function __construct($customer, $implementer = null)
+    public function __construct($customer, $status = 'new', $implementer = null)
     {
         $this->setCustomer($this);
         $this->setImplementer($implementer);
+        $this->setStatus($status);
     }
 
     /**
@@ -66,17 +67,20 @@ class Task
      */
     private function setStatus($str)
     {
+        if (!in_array($str, $this->getStatusesMap())) {
+            throw new Exception('Неверный статут');
+        }
         $this->status = $str;
     }
 
     /**
      * Список всех доступных статусов.
      */
-    const STATUS_NEW = 1;
-    const STATUS_CANCEL = 2;
-    const STATUS_IN_WORK = 3;
-    const STATUS_DONE = 4;
-    const STATUS_FAIL = 5;
+    const STATUS_NEW = 'new';
+    const STATUS_CANCEL = 'cancel';
+    const STATUS_IN_WORK = 'inwork';
+    const STATUS_DONE = 'done';
+    const STATUS_FAIL = 'fail';
 
 
     /**

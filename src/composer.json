@@ -1,0 +1,15 @@
+{
+    "name": "alex/src",
+    "autoload": {
+        "psr-4": {
+            "Alex\\Src\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alexandr Toropov",
+            "email": "toropovsite@yandex.ru"
+        }
+    ],
+    "require": {}
+}

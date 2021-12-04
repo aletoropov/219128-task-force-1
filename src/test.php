@@ -1,4 +1,8 @@
 <?php
+use alext\task\Task;
+
+require 'vendor/autoload.php';
+
 assert_options(ASSERT_ACTIVE, 1);
 assert_options(ASSERT_WARNING, 0);
 assert_options(ASSERT_QUIET_EVAL, 1);

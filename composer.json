@@ -1,8 +1,8 @@
 {
-    "name": "alex/src",
+    "name": "alex/htmlacademy",
     "autoload": {
         "psr-4": {
-            "Alex\\Src\\": "src/"
+            "Alex\\Htmlacademy\\": "src/"
         }
     },
     "authors": [

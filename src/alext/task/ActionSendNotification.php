@@ -6,7 +6,7 @@ namespace alext\task;
  * Отправка уведомления
  */
 
-class ActionSendNotification
+class ActionSendNotification extends AbstractAction
 {
 
 }

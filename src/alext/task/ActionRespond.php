@@ -6,7 +6,7 @@ namespace alext\task;
  * Добавление отклика
  */
 
-class ActionRespond
+class ActionRespond extends AbstractAction
 {
 
 }

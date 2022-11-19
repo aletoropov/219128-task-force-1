@@ -6,7 +6,7 @@ namespace alext\task;
  * Отказ от задания
  */
 
-class ActionRefuse
+class ActionRefuse extends AbstractAction
 {
 
 }

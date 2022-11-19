@@ -6,7 +6,7 @@ namespace alext\task;
  * Отправка сообщения
  */
 
-class ActionSendMessage
+class ActionSendMessage extends AbstractAction
 {
 
 }

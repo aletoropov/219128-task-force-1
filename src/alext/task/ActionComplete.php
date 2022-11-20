@@ -6,7 +6,7 @@ namespace alext\task;
  * Завершение задания
  */
 
-class ActionComplete
+class ActionComplete extends AbstractAction
 {
 
 }

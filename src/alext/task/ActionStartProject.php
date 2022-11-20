@@ -6,7 +6,7 @@ namespace alext\task;
  * Старт задания
  */
 
-class ActionStartProject
+class ActionStartProject extends AbstractAction
 {
 
 }

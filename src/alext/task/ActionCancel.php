@@ -6,7 +6,7 @@ namespace alext\task;
  * Отмена задания
  */
 
-class ActionCancel
+class ActionCancel extends AbstractAction
 {
 
 }

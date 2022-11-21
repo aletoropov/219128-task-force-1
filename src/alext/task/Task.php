@@ -1,6 +1,8 @@
 <?php
 namespace alext\task;
 
+use alext\exception\TaskException;
+
 /**
  * Class Task
  */
@@ -35,9 +37,9 @@ class Task
      * @param $customer
      * @param string $status
      * @param null $implementer
-     * @throws Exception
+     * @throws TaskException
      */
-    public function __construct($customer, $status = 'new', $implementer = null)
+    public function __construct($customer, string $status = 'new', $implementer = null)
     {
         $this->setCustomer($this);
         $this->setImplementer($implementer);
@@ -47,9 +49,9 @@ class Task
     /**
      * Устанавливаем исполнителя
      *
-     * @param $str
+     * @param string $str
      */
-    private function setImplementer($str)
+    private function setImplementer(string $str)
     {
         $this->implementer = $str;
     }
@@ -57,9 +59,9 @@ class Task
     /**
      * Устанавливаем заказчика
      *
-     * @param $str
+     * @param string $str
      */
-    private function setCustomer($str)
+    private function setCustomer(string $str)
     {
         $this->customer = $str;
     }
@@ -67,13 +69,13 @@ class Task
     /**
      * Устанавливаем статус задания
      *
-     * @param $str
-     * @throws Exception
+     * @param string $str
+     * @throws TaskException
      */
-    private function setStatus($str)
+    private function setStatus(string $str)
     {
         if (!in_array($str, $this->getStatusesMap())) {
-            throw new Exception('Неверный статут');
+            throw new TaskException('Неверный статут');
         }
         $this->status = $str;
     }
@@ -93,7 +95,7 @@ class Task
      *
      * @return string[]
      */
-    public function getStatusesMap()
+    public function getStatusesMap(): array
     {
         return[
             self::STATUS_NEW => 'new',
@@ -109,7 +111,7 @@ class Task
      *
      * @return string[]
      */
-    public function getActionMap()
+    public function getActionMap(): array
     {
         return[
             ActionRespond::class => 'Откликнуться',
@@ -127,7 +129,7 @@ class Task
      * @param $action
      * @return string
      */
-    public function getNextStatus($action)
+    public function getNextStatus(string $action): string
     {
         switch ($action) {
             case 'action_respond':

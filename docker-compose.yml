@@ -1,0 +1,43 @@
+version: '3.2'
+services:
+  php:
+    image: yiisoftware/yii2-php:8.0-apache
+    volumes:
+      - ~/.composer-docker/cache:/root/.composer/cache:delegated
+      - ./:/app:delegated
+    ports:
+      - '8030:80'
+    depends_on:
+      - db
+    container_name: yii_base_app
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3303
+      DB_DATABASE: test
+      DB_USERNAME: test-user
+      DB_PASSWORD: root
+  db:
+    image: mysql:8.0.35
+    container_name: project_db
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_USER: test-user
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3303:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      - PMA_HOST=db
+      - PMA_PORT=3306
+      - PMA_ARBITRARY=1
+    ports:
+      - "8088:80"
+    volumes:
+      - /sessions
+    depends_on:
+      - db

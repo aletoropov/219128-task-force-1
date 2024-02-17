@@ -3,14 +3,10 @@
 namespace app\models;
 
 use yii\base\Model;
+use yii\db\ActiveRecord;
 
-class Contact extends Model
+class Contact extends ActiveRecord
 {
-    public string $name;
-    public string $phone;
-    public string $email;
-    public string $position;
-
     public function attributeLabels(): array
     {
         return [
@@ -18,6 +14,13 @@ class Contact extends Model
           'phone'    => 'Телефон',
           'email'    => 'E-mail',
           'position' => 'Должность',
+        ];
+    }
+
+    public function rules()
+    {
+        return [
+            [['name', 'phone', 'email', 'position'], 'safe']
         ];
     }
 }

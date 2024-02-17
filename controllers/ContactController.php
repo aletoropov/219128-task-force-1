@@ -22,11 +22,34 @@ class ContactController extends Controller
 
     public function actionIndex()
     {
-        $company = Company::find()->where(1)->joinWith('contact')->one();
-        $contacts = $company->contacts;
-        foreach ($contacts as $contact) {
-            echo $contact->name, $contact->phone, $contact->company->name;
-        }
+        $contact = Contact::find()->one();
+
+        return $this->render('contact', ['contact' => $contact]);
+    }
+
+    public function actionAdd()
+    {
+//        // добавление записи в базу с помощью ActiveRecord
+//        $contact = new Contact();
+//        $contact->name = 'Иван Иванов';
+//        $contact->phone = '8-999-99-99';
+//        $contact->email = 'toropovsite@yandex.ru';
+//        $contact->position = 'Менеджер';
+//        // сохранение модели в базе данных
+//        $contact->save();
+
+        $props = [
+            'name' => 'Петр Петров',
+            'phone' => '9-900-00-00',
+            'email' => 'pp@bk.ru',
+            'position' => 'Бухгалтер',
+        ];
+
+        $contact = new Contact();
+        $contact->attributes = $props;
+        $contact->save();
+
+        return $this->render('index');
     }
 
     public function actionShow()

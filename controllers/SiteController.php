@@ -63,9 +63,10 @@ class SiteController extends Controller
      */
     public function actionIndex(): string
     {
+        /*
         \Yii::$app->db->open();
         $posts = \Yii::$app->db->createCommand('SELECT * FROM post')
-            ->queryAll();
+            ->queryAll(); */
         return $this->render('index');
     }
 

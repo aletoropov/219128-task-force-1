@@ -49,7 +49,7 @@ class ContactController extends Controller
         $contact->attributes = $props;
         $contact->save();
 
-        return $this->render('index');
+        return $this->goHome();
     }
 
     public function actionShow()

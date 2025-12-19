@@ -2,9 +2,9 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=db;dbname=test',
-    'username' => 'test-user',
-    'password' => 'root',
+    'dsn' => 'mysql:host=mysql-8.0;dbname=taskforce',
+    'username' => 'root',
+    'password' => '',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)
